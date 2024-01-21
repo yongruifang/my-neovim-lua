@@ -25,6 +25,9 @@ plugins={
   {
     "nvim-telescope/telescope.nvim", tag="0.1.5", dependencies={"nvim-lua/plenary.nvim"}
   },
+  {
+    "nvim-treesitter/nvim-treesitter", build = ":TSUpdate"
+  },
 }
 opts={}
 require("lazy").setup(plugins, opts)
@@ -40,3 +43,10 @@ require("telescope").setup{
 }
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 
+-- configure treesitter
+local configs = require("nvim-treesitter.configs")
+configs.setup({
+  ensure_installed={"lua","javascript"},
+  highlight={enable=true},
+  indent={enable=true},
+})

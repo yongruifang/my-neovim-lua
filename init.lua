@@ -20,16 +20,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
-local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<C-p>", builtin.find_files, {}) -- "n" means "normal mode"
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>", {})
 
-require("telescope").setup{
-  pickers={ 
-    find_files={theme="cursor"}
-  }
-}
 -- configure treesitter
 local configs = require("nvim-treesitter.configs")
 configs.setup({

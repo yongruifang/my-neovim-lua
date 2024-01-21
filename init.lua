@@ -20,12 +20,5 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
-vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>", {})
 
--- configure treesitter
-local configs = require("nvim-treesitter.configs")
-configs.setup({
-  ensure_installed={"lua","javascript"},
-  highlight={enable=true},
-  indent={enable=true},
-})
+

@@ -3,6 +3,7 @@ vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.cmd("set number")
+vim.g.mapleader = " "
 
 -- install package manager -- Lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -37,3 +38,5 @@ require("telescope").setup{
     find_files={theme="cursor"}
   }
 }
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
+

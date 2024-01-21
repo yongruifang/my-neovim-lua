@@ -20,9 +20,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
-require("catppuccin").setup()
-vim.cmd.colorscheme "catppuccin"
-
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<C-p>", builtin.find_files, {}) -- "n" means "normal mode"
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})

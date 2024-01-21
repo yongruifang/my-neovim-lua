@@ -28,6 +28,15 @@ plugins={
   {
     "nvim-treesitter/nvim-treesitter", build = ":TSUpdate"
   },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch="v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons",
+      "MunifTanjim/nui.nvim"
+    }
+  },
 }
 opts={}
 require("lazy").setup(plugins, opts)
@@ -36,13 +45,14 @@ vim.cmd.colorscheme "catppuccin"
 
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<C-p>", builtin.find_files, {}) -- "n" means "normal mode"
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
+vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal left<CR>", {})
+
 require("telescope").setup{
   pickers={ 
     find_files={theme="cursor"}
   }
 }
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-
 -- configure treesitter
 local configs = require("nvim-treesitter.configs")
 configs.setup({

@@ -4,7 +4,10 @@ return {
   priority=1000,
 
   config = function()
-    -- require("catppuccin").setup()
+    require("catppuccin").setup({
+      transparent_background = true,
+      no_italic = true
+    })
     -- yes, the setup command will automatically run
     vim.cmd.colorscheme "catppuccin"
   end

@@ -6,3 +6,5 @@ vim.cmd("set number")
 vim.g.mapleader = " "
 
 vim.opt.conceallevel = 1
+
+vim.keymap.set("t","<ESC>","<c-\\><c-n>", {noremap=true,silent=true})

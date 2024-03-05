@@ -5,7 +5,7 @@ return {
 
   config = function()
     require("catppuccin").setup({
-      transparent_background = true,
+      transparent_background = false,
       no_italic = true
     })
     -- yes, the setup command will automatically run

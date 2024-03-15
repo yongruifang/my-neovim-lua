@@ -9,21 +9,21 @@ vim.api.nvim_create_autocmd("FileType", {
       0,
       "n",
       "<F5>",
-      '<ESC>:w<CR>:TermExec direction=float cmd="g++ *.cpp -o %:t:r.exe "<CR>',
+      '<ESC>:w<CR>:TermExec direction=float cmd="g++ *.cpp -o %:t:r ; ./%:t:r"<CR>', -- 编译 弹出终端 运行程序
       { silent = true, noremap = true }
     )
     vim.api.nvim_buf_set_keymap(
       0,
       "n",
       "<F4>",
-      "<ESC>:w<CR>:!g++ *.cpp -o %:t:r.exe<CR>",
+      "<ESC>:w<CR>:!g++ *.cpp -o %:t:r<CR>", -- 编译
       { silent = true, noremap = true }
     )
     vim.api.nvim_buf_set_keymap(
       0,
       "n",
-      "<C-F4>",
-      "<ESC>:w<CR>:!g++ -g *.cpp -o %:t:r.exe<CR>",
+      "<C-r>",
+      "<ESC>:w<CR>:!g++ -g *.cpp -o %:t:r<CR>", -- 编译 + 生成调试信息
       { silent = true, noremap = true }
     )
   end,
@@ -36,21 +36,15 @@ vim.api.nvim_create_autocmd("FileType", {
       0,
       "n",
       "<F5>",
-      '<ESC>:w<CR>:TermExec direction=float cmd="gcc *.c -o %:t:r.exe ;"<CR>',
+      '<ESC>:w<CR>:TermExec direction=float cmd="gcc *.c -o %:t:r ; ./%:t:r"<CR>',
       { silent = true, noremap = true }
     )
+    vim.api.nvim_buf_set_keymap(0, "n", "<F4>", "<ESC>:w<CR>:!gcc *.c -o %:t:r<CR>", { silent = true, noremap = true })
     vim.api.nvim_buf_set_keymap(
       0,
       "n",
-      "<F4>",
-      "<ESC>:w<CR>:!gcc *.c -o %:t:r.exe<CR>",
-      { silent = true, noremap = true }
-    )
-    vim.api.nvim_buf_set_keymap(
-      0,
-      "n",
-      "<C-F4>",
-      "<ESC>:w<CR>:!gcc -g *.cpp -o %:t:r.exe<CR>",
+      "<C-r>",
+      "<ESC>:w<CR>:!gcc -g *.c -o %:t:r<CR>",
       { silent = true, noremap = true }
     )
   end,
@@ -115,7 +109,7 @@ vim.api.nvim_create_autocmd("FileType", {
       0,
       "n",
       "<F5>",
-      '<ESC>:w<CR>:TermExec direction=float cmd="rustc %:t:r.rs ; ./%:t:r.exe"<CR>',
+      '<ESC>:w<CR>:TermExec direction=float cmd="rustc %:t:r.rs ; ./%:t:r"<CR>',
       { silent = true, noremap = true }
     )
     vim.api.nvim_buf_set_keymap(0, "n", "<F4>", "<ESC>:w<CR>:!rustc %:t:r.rs<CR>", { silent = true, noremap = true })
